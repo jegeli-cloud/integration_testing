@@ -12,21 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/petri-rantanen/AT00CK37-3003-Week39.git"
+    "url": "git+https://github.com/jegeli-cloud/integration_testing.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eemeli Mäkinen",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/petri-rantanen/AT00CK37-3003-Week39/issues"
-  },
-  "homepage": "https://github.com/petri-rantanen/AT00CK37-3003-Week39#readme",
+  "homepage": "https://https://github.com/jegeli-cloud/integration_testing#readme",
   "devDependencies": {
-    "chai": "^6.0.1",
-    "mocha": "^11.7.2",
-    "supertest": "^7.1.4"
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5",
+    "supertest": "^7.2.2"
   },
   "dependencies": {
-    "express": "^5.1.0"
-  }
+    "express": "^5.2.1"
+  },
+  "type": "commonjs"
 }

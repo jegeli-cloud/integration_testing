@@ -1,3 +1,6 @@
+
+---
+
 This is a template for integration testing.
 
 # Usage
