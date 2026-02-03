@@ -1,21 +1,30 @@
-const express = require("express");
-const mathlib = require("./math");
+const express = require('express');
+const { hexToRgb } = require('./hexToRgb');
+
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-app.get("/", (req, res) => res.send("Hello"));
+app.use(express.json());
 
-app.get("/add", (req, res) => {
-	const a = parseInt(req.query.a, 10);
-	const b = parseInt(req.query.b, 10);
-	res.send(String(mathlib.add(a, b)));
+app.get("/", (req, res) => res.send("Moikka! Palvelin toimii."));
+
+// GET /hexToRgb endpoint
+app.get('/hexToRgb', (req, res) => {
+  const { hex } = req.query;
+  console.log("Received hex parameter:", hex);
+  const rgb = hexToRgb(hex);
+
+  if (!rgb) {
+    return res.status(400).json({
+      success: false,
+      error: 'Invalid hex format.'
+    });
+  }
+  res.send(rgb);
 });
 
-//TODO app.get("/isEven") end-point (route)
-
-if (process.env.NODE_ENV !== "test") {
-	app.listen(port, () => console.log(`Server: localhost:${port}`));
-}
+app.listen(PORT, () => {
+  console.log(`Server running → http://localhost:${PORT}`);
+});
 
 module.exports = app;
-
