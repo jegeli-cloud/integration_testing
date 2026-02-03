@@ -6,21 +6,24 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => res.send("Moikka! Palvelin toimii."));
+app.get("/", (req, res) => res.send("Hello! Server is working."));
 
 // GET /hexToRgb endpoint
 app.get('/hexToRgb', (req, res) => {
-  const { hex } = req.query;
-  console.log("Received hex parameter:", hex);
-  const rgb = hexToRgb(hex);
 
+	const { hex } = req.query;
+	const rgb = hexToRgb(hex);
+
+  //check for invalid input
   if (!rgb) {
     return res.status(400).json({
       success: false,
       error: 'Invalid hex format.'
     });
   }
+
   res.send(rgb);
+
 });
 
 app.listen(PORT, () => {
